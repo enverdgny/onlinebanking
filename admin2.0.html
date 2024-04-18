@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyBank Admin Portal</title>
+    <!-- Existing styles remain unchanged -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+            height: 100vh;
+            margin: 0;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0px 0px 10px 0px #000;
+            color: #000;
+            width: 80%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+    
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        .balance {
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+    
+        .balance p {
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+    
+        .currency-box {
+            display: flex;
+            justify-content: space-between;
+        }
+    
+        .currency-item {
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+            color: #000;
+        }
+    
+        .currency-amount {
+            font-size: 24px;
+            font-weight: bold;
+        }
+    
+        .currency-label {
+            font-size: 14px;
+        }
+    
+        .currency-item:nth-child(1) {
+            background-color: hsl(199, 100%, 89%); /* Light blue for TL */
+        }
+    
+        .currency-item:nth-child(2) {
+            background-color: hsl(51, 100%, 87%); /* Light orange for USD */
+        }
+    
+        .currency-item:nth-child(3) {
+            background-color: hsl(260, 60%, 89%); /* Light purple for Euro */
+        }
+    
+        .menu {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+    
+        .menu button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+            border: none;
+            border-radius: 10px;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+    
+        .menu button:hover {
+            background-color: #005bbf;
+        }
+    
+        .sidebar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+    
+        .sidebar button {
+            background: none;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+    
+        .sidebar button:hover {
+            transform: scale(1.1);
+        }
+    
+        .last-events {
+            text-align: left;
+            color: #000;
+            margin-bottom: 20px;
+        }
+    
+        .last-events h3 {
+            font-size: 20px;
+        }
+    
+        .last-events ul {
+            list-style: none;
+            padding: 0;
+        }
+    
+        .last-events li {
+            margin-bottom: 10px;
+        }
+    
+        .last-events .income {
+            color: green;
+        }
+    
+        .last-events .outcome {
+            color: red;
+        }
+    
+        .total-money {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+    
+        .total-money span {
+            font-weight: bold;
+            font-size: 28px;
+        }
+    
+        /* Additional styles for admin-specific elements */
+        .admin-header {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #ff9900; /* Admin-specific color */
+        }
+    
+        .admin-menu {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+    
+        .admin-menu button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 10px;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            background: linear-gradient(to right, #ff9900, #ff6600); /* Admin-specific gradient */
+        }
+    
+        .admin-menu button:hover {
+            background-color: #cc6600; /* Admin-specific hover color */
+        }
+        </style>
+    <!-- ... (other styles) ... -->
+</head>
+<body>
+    <div class="container">
+        <div class="admin-header">
+            Admin Dashboard
+        </div>
+        <div class="admin-menu">
+            <button onclick="displayUsers()">Manage Users</button>
+            <button onclick="viewLogs()">View Logs</button>
+            <button onclick="showRequests()">Waiting Requests</button>
+            <button onclick="systemSettings()">System Settings</button>
+            
+        </div>
+        <div id="userList" style="display: none;">
+            <h3>Users:</h3>
+            <ul>
+                <li>
+                    John Doe
+                    <button onclick="showUserInfo('John Doe')">Info</button>
+                    <button onclick="deleteUser('John Doe')">Delete</button>
+                </li>
+                <li>
+                    Jane Smith
+                    <button onclick="showUserInfo('Jane Smith')">Info</button>
+                    <button onclick="deleteUser('Jane Smith')">Delete</button>
+                </li>
+                <!-- Add similar buttons for other users -->
+            </ul>
+        </div>
+        <div id="requestList" style="display: none;">
+            <h3>Waiting Requests:</h3>
+            <ul>
+                <li>John requested to create an account</li>
+                <li>Jane requested a $500 TL money transfer</li>
+                <!-- Add more dummy requests here -->
+            </ul>
+        </div>
+        <div id="logs" style="display: none;">
+            <h3>Logs:</h3>
+            <ul id="logsList"></ul>
+        </div>
+        <!-- Rest of the admin content follows the same structure as the user interface -->
+        <!-- ... (copy the existing HTML structure) ... -->
+    </div>
+    <script>
+        function displayUsers() {
+            hideAll();
+            const userList = document.getElementById("userList");
+            userList.style.display = "block";
+        }
+
+        function viewLogs() {
+            hideAll();
+            const logs = [
+                "John Doe logged in at 10:00 AM",
+                "Jane Smith updated her profile",
+                // Add more dummy logs here
+            ];
+            const logsList = document.getElementById("logsList");
+            logsList.innerHTML = logs.map(log => `<li>${log}</li>`).join("");
+            const logsDiv = document.getElementById("logs");
+            logsDiv.style.display = "block";
+        }
+
+        function systemSettings() {
+            hideAll();
+            // Implement logic for system settings (e.g., update system configuration)
+            alert("System Settings");
+        }
+
+        function showUserInfo(username) {
+            hideAll();
+            // Implement logic to display user information (e.g., fetch from server)
+            alert(`User info for ${username}: Account balance, transaction history, etc.`);
+        }
+
+        function deleteUser(username) {
+            hideAll();
+            // Implement logic to delete user (e.g., send request to server)
+            alert(`User ${username} deleted successfully.`);
+        }
+
+        function showRequests() {
+            hideAll();
+            const requestList = document.getElementById("requestList");
+            requestList.style.display = "block";
+        }
+
+        function hideAll() {
+            document.getElementById("userList").style.display = "none";
+            document.getElementById("requestList").style.display = "none";
+            document.getElementById("logs").style.display = "none";
+        }
+    </script>
+</body>
+</html>
