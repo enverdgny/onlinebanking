@@ -156,3 +156,36 @@ body {
     font-weight: bold;
     font-size: 28px;
 }
+
+/* Additional styles for admin-specific elements */
+.admin-header {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #ff9900;
+    /* Admin-specific color */
+}
+
+.admin-menu {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.admin-menu button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    background: linear-gradient(to right, #ff9900, #ff6600);
+    /* Admin-specific gradient */
+}
+
+.admin-menu button:hover {
+    background-color: #cc6600;
+    /* Admin-specific hover color */
+}
