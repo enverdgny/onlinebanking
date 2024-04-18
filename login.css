@@ -88,7 +88,7 @@ body {
     width: 100%;
     padding: 15px 0; /* Smaller padding for the register button */
     font-size: 18px; /* Slightly smaller font size */
-    background: linear-gradient(to right, rgb(235, 24, 24), rgb(135, 97, 26));
+    background: linear-gradient(to right, #ff9900, #ff6600);
     border: none;
     border-radius: 10px;
     color: #fff;
