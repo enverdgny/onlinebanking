@@ -19,7 +19,7 @@
             <button onclick="systemSettings()">System Settings</button>
             
         </div>
-        <div id="userList" style="display: none;">
+        <div id="userList" style="display: block;">
             <h3>Users:</h3>
             <ul>
                 <li>
@@ -116,6 +116,8 @@
         function showUserInfo(username) {
             hideAll();
             // Implement logic to display user information (e.g., fetch from server)
+            const userList = document.getElementById("userList");
+            userList.style.display = "block";
             alert(`User info for ${username}: Account balance, transaction history, etc.`);
         }
 
