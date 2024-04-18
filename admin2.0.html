@@ -51,7 +51,7 @@
                 <!-- Add similar buttons for other users -->
             </ul>
         </div>
-        <div id="requestList" style="display: none;">
+        <div id="requestList" class="logs-requests" style="display: none;">
             <h3>Waiting Requests:</h3>
             <ul>
                 <div class="request-container">
@@ -62,11 +62,23 @@
                     <li>Jane requested a $500 TL money transfer</li>
                     <a href="admin-approval.html"><button class="admin-btn">Manage</button></a>
                 </div>
+                <div class="request-container">
+                    <li>Emily Brown needs assistance with account settings</li>
+                    <a href="admin-approval.html"><button class="admin-btn">Manage</button></a>
+                </div>
+                <div class="request-container">
+                    <li>David Lee wants to update contact information</li>
+                    <a href="admin-approval.html"><button class="admin-btn">Manage</button></a>
+                </div>
+                <div class="request-container">
+                    <li>Michael Johnson requested a credit limit increase</li>
+                    <a href="admin-approval.html"><button class="admin-btn">Manage</button></a>
+                </div>
                 <!-- Add more dummy requests here -->
             </ul>
             
         </div>
-        <div id="logs" style="display: none;">
+        <div id="logs" class="logs-requests" style="display: none;">
             <h3>Logs:</h3>
             <ul id="logsList"></ul>
         </div>
@@ -85,7 +97,9 @@
             const logs = [
                 "John Doe logged in at 10:00 AM",
                 "Jane Smith updated her profile",
-                // Add more dummy logs here
+                "Michael Johnson initiated a transaction",
+                "Emily Brown reset her password",
+                "David Lee reviewed account statements",
             ];
             const logsList = document.getElementById("logsList");
             logsList.innerHTML = logs.map(log => `<li>${log}</li>`).join("");

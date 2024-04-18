@@ -248,3 +248,32 @@ body {
 #userList button:hover {
     background-color: #005bbf;
 }
+
+.logs-requests {
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.logs-requests h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.logs-requests ul {
+    list-style: none;
+    padding: 0;
+}
+
+.logs-requests li {
+    margin-bottom: 10px;
+}
+
+.logs-requests .income {
+    color: green;
+}
+
+.logs-requests .outcome {
+    color: red;
+}
