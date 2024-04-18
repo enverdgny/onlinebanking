@@ -158,6 +158,27 @@ body {
 }
 
 /* Additional styles for admin-specific elements */
+
+.admin-btn {
+
+    padding: 5px 3px;
+    /* Smaller padding for the register button */
+    font-size: 15px;
+    /* Slightly smaller font size */
+    background: linear-gradient(to right, rgb(235, 24, 24), rgb(135, 97, 26));
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 5px;
+    /* Add some spacing below the login button */
+    /*animation: shake2 1s infinite alternate;*/
+}
+
+.admin-btn:hover {
+    animation: shake2 0.9s infinite alternate;
+}
+
 .admin-header {
     text-align: center;
     margin-bottom: 20px;
@@ -188,4 +209,18 @@ body {
 .admin-menu button:hover {
     background-color: #cc6600;
     /* Admin-specific hover color */
+}
+
+.request-container {
+    display: flex;
+    align-items: center;
+}
+
+.request-container li {
+    flex: 1;
+    margin-right: 10px; /* Adjust spacing between list item and button as needed */
+}
+
+.request-container .admin-btn {
+    flex: none; /* Prevent button from stretching */
 }
