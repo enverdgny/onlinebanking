@@ -1,11 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Settings</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="settings.css">
 </head>
+
 <body>
-    <p>todo</p>
+    <div class="settings-container">
+        <h2>Settings</h2>
+        <div class="input-group">
+            <div><i class="fas fa-language"></i> Language</div>
+            <select id="language" required>
+                <option value="" disabled selected>Select Language</option>
+                <option value="en">English</option>
+                <option value="tr">Turkish</option>
+                <option value="es">Spanish</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <input type="number" id="accountLimit" min="0" required>
+            <span><i class="fas fa-coins"></i> Set Account Limit</span>
+        </div>
+        <a href="index.html"><button class="settings-btn">Save Changes</button></a>
+    </div>
 </body>
+
 </html>
